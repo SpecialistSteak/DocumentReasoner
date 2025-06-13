@@ -1,0 +1,85 @@
+# Commands:
+# ADD(A,B) --> Adds A and B
+# SUBTRACT(A,B) --> Subtracts B from A
+# MULTIPLY(A,B) --> Multiplies A and B
+# DIVIDE(A,B) --> Divides A by B
+# SQRT(A) --> Returns the square root of A
+# EXP(A,B) --> Returns A raised to the power of B (A^B)
+# EEXP(A) --> Returns e raised to the power of A (e^A)
+# AVG(A,B,C,...) --> Returns the average of all numbers provided
+# SUM(A,B,C,...) --> Returns the sum of all numbers provided
+# LOG(A) --> Returns the natural logarithm of A (base e)
+# ABS(A) --> Returns the absolute value of A
+# MIN(A,B,C,...) --> Returns the smallest number among the inputs
+# MAX(A,B,C,...) --> Returns the largest number among the inputs
+# FLOOR(A) --> Rounds A down to the nearest integer
+# CEIL(A) --> Rounds A up to the nearest integer
+# SIN(A) --> Returns the sine of angle A (in radians)
+# COS(A) --> Returns the cosine of angle A (in radians)
+#
+# Metric Codes:
+# id: 1, metric_code: TOTAL_REVENUE
+# id: 2, metric_code: COST_OF_REVENUE
+# id: 3, metric_code: GROSS_PROFIT
+# id: 4, metric_code: OPERATING_EXPENSE
+# id: 5, metric_code: OPERATING_INCOME
+# id: 6, metric_code: NET_NON_OPERATING_INTEREST_INCOME
+# id: 7, metric_code: OTHER_INCOME_EXPENSE
+# id: 8, metric_code: PRETAX_INCOME
+# id: 9, metric_code: TAX_PROVISION
+# id: 10, metric_code: NET_INCOME_COMMON_STOCKHOLDERS
+# id: 11, metric_code: AVERAGE_DILUTION_EARNINGS
+# id: 12, metric_code: DILUTED_NI_AVAILABLE_TO_COM_STOCKHOLDERS
+# id: 13, metric_code: BASIC_EPS
+# id: 14, metric_code: DILUTED_EPS
+# id: 15, metric_code: BASIC_AVERAGE_SHARES
+# id: 16, metric_code: DILUTED_AVERAGE_SHARES
+# id: 17, metric_code: TOTAL_OPERATING_INCOME_AS_REPORTED
+# id: 18, metric_code: TOTAL_EXPENSES
+# id: 19, metric_code: NET_INCOME_FROM_CONTINUING_DISCONTINUED_OPS
+# id: 20, metric_code: NORMALIZED_INCOME
+# id: 21, metric_code: INTEREST_INCOME
+# id: 22, metric_code: INTEREST_EXPENSE
+# id: 23, metric_code: NET_INTEREST_INCOME
+# id: 24, metric_code: EBIT
+# id: 25, metric_code: EBITDA
+# id: 26, metric_code: RECONCILED_COST_OF_REVENUE
+# id: 27, metric_code: RECONCILED_DEPRECIATION
+# id: 28, metric_code: NET_INCOME_FROM_CONTINUING_OPS
+# id: 29, metric_code: NORMALIZED_EBITDA
+# id: 30, metric_code: TAX_RATE_FOR_CALCS
+# id: 31, metric_code: TAX_EFFECT_OF_UNUSUAL_ITEMS
+#
+# Special items:
+# # Params:
+# # # For this, the AI will specify which data it wants - as a mini JSON
+# # # {"metric_id": 1, "fiscal_year": 2023, "fiscal_period": "FY"} is an example
+# # # The parser will replace this with the value of the thing
+# # # so the value of the total revenue for the 2023 financial year will be inserted in this case
+# # Results:
+# # # There is also $N$ syntax which I have added
+# # # This will plug the number that's the result of the line
+# # # For instance, $0$ will be the result of the calculated first line
+# # # Ex if first command is ADD(1,2) and the second is ADD($0$,1) the computer will:
+# # # # 1 + 2 = 3 --> result of the first line is 3
+# # # # 3 + 1 = 4 --> so the result of the second line is 4
+#
+# JSON Example:
+# {
+#   "lines": [
+#     {
+#       "command": "ADD",
+#       "params": [
+#         {"metric_id": 1, "fiscal_year": 2023, "fiscal_period": "FY"},
+#         {"metric_id": 2, "fiscal_year": 2023, "fiscal_period": "FY"}
+#       ]
+#     },
+#     {
+#       "command": "SUBTRACT",
+#       "params": [
+#         "$0$",
+#         {"metric_id": 3, "fiscal_year": 2023, "fiscal_period": "FY"}
+#       ]
+#     }
+#   ]
+# }

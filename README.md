@@ -21,7 +21,7 @@ and calculations for validation.
 
 - Primary Language, Backend: Python
 - Test Framework, Backend: pytest
-- API Framework, Backend: fastapi
+- API Framework, Backend: FastAPI
 - Database: MySQL
 - Frontend: React JS
 
