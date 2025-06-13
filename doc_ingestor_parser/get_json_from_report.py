@@ -1,4 +1,4 @@
-from expected_json_format_class import JsonCompanyOutputFormat
+from expected_json_format_storage_class import JsonCompanyOutputFormat
 
 basePrompt = open("extract_prompt.txt", "r").read()
 
