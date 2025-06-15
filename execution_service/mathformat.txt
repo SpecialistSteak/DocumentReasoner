@@ -4,14 +4,15 @@
 # MULTIPLY(A,B) --> Multiplies A and B
 # DIVIDE(A,B) --> Divides A by B
 # SQRT(A) --> Returns the square root of A
-# EXP(A,B) --> Returns A raised to the power of B (A^B)
-# EEXP(A) --> Returns e raised to the power of A (e^A)
-# AVG(A,B,C,...) --> Returns the average of all numbers provided
-# SUM(A,B,C,...) --> Returns the sum of all numbers provided
-# LOG(A) --> Returns the natural logarithm of A (base e)
+# POW(A,B) --> Returns A raised to the power of B (A^B)
+# EXP(A) --> Returns e raised to the power of A (e^A)
+# AVG([A,B,C,...]) --> Returns the average of all numbers provided
+# SUM([A,B,C,...]) --> Returns the sum of all numbers provided
+# LN(A) --> Returns the natural logarithm of A (base e)
+# LOG(A) --> Returns the logarithm of B with base A
 # ABS(A) --> Returns the absolute value of A
-# MIN(A,B,C,...) --> Returns the smallest number among the inputs
-# MAX(A,B,C,...) --> Returns the largest number among the inputs
+# MIN([A,B,C,...]) --> Returns the smallest number among the inputs
+# MAX([A,B,C,...]) --> Returns the largest number among the inputs
 # FLOOR(A) --> Rounds A down to the nearest integer
 # CEIL(A) --> Rounds A up to the nearest integer
 # SIN(A) --> Returns the sine of angle A (in radians)
