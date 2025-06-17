@@ -1,6 +1,8 @@
+import json
+
 math_prompt = open("mathagentqueryprompt.txt", "r").read()
 
-from execution_service.expected_json_format_calculations_class import FinParam
+from math_and_sql_execution_service.expected_json_format_calculations_class import FinParam
 
 def generate_math_query(userinput, client):
     try:
@@ -17,4 +19,4 @@ def generate_math_query(userinput, client):
         print(f"some error with sending to Gemini {str(e)}")
         return "{}"
 
-    return response.text.json()
+    return json.loads(response.text)

@@ -2,10 +2,86 @@ import math
 import json
 
 
-def calculate(calculation_json):
-    json_data = json.loads(calculation_json)
-    print(json_data)
+# Example input calculation_json:
+# {
+#   "lines": [
+#     {
+#       "command": "SUBTRACT",
+#       "params": [
+#         {"metric_id": 1, "fiscal_year": 2023, "fiscal_period": "FY"},
+#         {"metric_id": 1, "fiscal_year": 2022, "fiscal_period": "FY"}
+#       ]
+#     },
+#     {
+#       "command": "DIVIDE",
+#       "params": [
+#         "$0$",
+#         {"metric_id": 1, "fiscal_year": 2022, "fiscal_period": "FY"}
+#       ]
+#     },
+#     {
+#       "command": "MULTIPLY",
+#       "params": [
+#         "$1$",
+#         100
+#       ]
+#     }
+#   ]
+# }
 
+def calculate(calculation_json, querydata):
+    if isinstance(calculation_json, str):
+        json_data = json.loads(calculation_json)
+    else:
+        json_data = calculation_json
+    lines_list :list = json_data.get("lines")
+    output_list :list = []
+    for line in lines_list:
+        match line.get("command"):
+            # Takes in two variables
+            case "ADD":
+                print()
+            case "SUBTRACT":
+                print()
+            case "MULTIPLY":
+                print()
+            case "DIVIDE":
+                print()
+            case "POW":
+                print()
+            case "LOG":
+                print()
+
+            # Takes in one variable
+            case "SQRT":
+                print()
+            case "EXP":
+                print()
+            case "LN":
+                print()
+            case "ABS":
+                print()
+            case "FLOOR":
+                print()
+            case "CEIL":
+                print()
+
+            # Takes in a list
+            case "MIN":
+                print()
+            case "MAX":
+                print()
+            case "AVG":
+                print()
+            case "SUM":
+                print()
+
+            # Else
+            case _:
+                print()
+
+
+    print(json_data)
 
 def ADD(A, B):
     return A + B
@@ -69,11 +145,3 @@ def FLOOR(A):
 
 def CEIL(A):
     return math.ceil(A)
-
-
-def SIN(A):
-    return math.sin(A)
-
-
-def COS(A):
-    return math.cos(A)

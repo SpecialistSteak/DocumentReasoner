@@ -1,3 +1,5 @@
+import json
+
 from expected_json_format_storage_class import JsonCompanyOutputFormat
 
 base_prompt = open("extract_prompt.txt", "r").read()
@@ -25,7 +27,7 @@ def get_json_from_report(filename, media, client):
         print(f"some error with sending to Gemini {str(e)}")
         return "{}"
 
-    return response.text.json()
+    return json.loads(response.text)
 
 
 def get_json_from_reports(filename, media, client):
@@ -59,6 +61,6 @@ def get_json_from_reports(filename, media, client):
             print(f"SETTING RESPONSE {increment - 1} to empty")
             response = "{}"
 
-        json_files_of_documents.append(response.json())
+        json_files_of_documents.append(json.loads(response.text))
 
     return json_files_of_documents

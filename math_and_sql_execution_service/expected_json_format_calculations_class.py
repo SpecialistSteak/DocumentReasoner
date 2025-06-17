@@ -5,6 +5,7 @@ class FinParam(BaseModel):
     metric_id: int
     fiscal_year: int
     fiscal_period: str
+    company_ticker: str
 
 
 class Line(BaseModel):

@@ -15,8 +15,6 @@
 # MAX([A,B,C,...]) --> Returns the largest number among the inputs
 # FLOOR(A) --> Rounds A down to the nearest integer
 # CEIL(A) --> Rounds A up to the nearest integer
-# SIN(A) --> Returns the sine of angle A (in radians)
-# COS(A) --> Returns the cosine of angle A (in radians)
 #
 # Metric Codes:
 # id: 1, metric_code: TOTAL_REVENUE
