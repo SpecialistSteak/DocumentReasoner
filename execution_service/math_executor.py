@@ -1,4 +1,3 @@
-# See mathformat.txt for explanation
 import math
 import json
 

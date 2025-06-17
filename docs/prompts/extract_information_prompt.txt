@@ -58,6 +58,7 @@ This is the complete and final list of metrics. You MUST use the specified `metr
 4. Negative Number Conversion: Numbers enclosed in parentheses, e.g., `(1,234)`, MUST be converted to a negative integer, e.g., `-1234`.
 5. Find Units and Currency: Scan the text directly above the financial tables to find the reporting unit (e.g., "in thousands", "in millions") to ensure your answer is correct, and currency ("USD").
 6. Final Output Validation: Your ENTIRE output must be ONLY a single, perfectly formed JSON object. Do not include any introductory text, concluding summaries, apologies, or any character outside of the JSON structure. Internally validate that the output is a parseable JSON object before responding.
+7. fiscal_period Values: fiscal_period can and must only ever hold one of 4 values: 'FY', ''Q1', 'Q2', or 'Q3'
 
 # REQUIRED OUTPUT FORMAT
 The final output must be a single JSON object structured EXACTLY as follows. The example below is a brief snippet to illustrate the required structure. Your actual output will be much longer and must contain an entry for every metric in the master list for every year found in the document.

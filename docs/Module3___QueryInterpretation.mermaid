@@ -1,9 +1,0 @@
-flowchart TD
-    subgraph "Module 3: Query Interpretation & Planning"
-        A["Input: User's Natural Language Question"] --> B;
-        A -- " Provides Context for Calculation " --> E;
-        B{"AI Agent 1: Analyze Question & DB Schema"} --> C;
-        C["Determine What Data Is Needed"] --> D;
-        D["Write SQL Request To Retrieve Relevant Data"] -- " Provides Data Format " --> E;
-        E{"AI Agent 2: Given Data Format Of SQL Request, Write Math And Processing Steps"};
-    end
