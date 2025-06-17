@@ -1,10 +1,10 @@
 import os
 from pathlib import Path
 
-from get_json_from_report import *
-
 from dotenv import load_dotenv
 from google import genai
+
+from document_ingestion_agent.get_json_from_report import get_json_from_reports
 
 load_dotenv()
 

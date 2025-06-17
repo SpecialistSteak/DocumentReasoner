@@ -1,6 +1,6 @@
 from expected_json_format_storage_class import JsonCompanyOutputFormat
 
-basePrompt = open("extract_prompt.txt", "r").read()
+base_prompt = open("extract_prompt.txt", "r").read()
 
 
 def get_json_from_report(filename, media, client):
@@ -15,7 +15,7 @@ def get_json_from_report(filename, media, client):
     try:
         response = client.models.generate_content(
             model="gemini-2.5-flash-preview-05-20",
-            contents=[basePrompt, report],
+            contents=[base_prompt, report],
             config={
                 "response_mime_type": "application/json",
                 "response_schema": JsonCompanyOutputFormat,
@@ -25,7 +25,7 @@ def get_json_from_report(filename, media, client):
         print(f"some error with sending to Gemini {str(e)}")
         return "{}"
 
-    return response.text
+    return response.text.json()
 
 
 def get_json_from_reports(filename, media, client):
@@ -48,7 +48,7 @@ def get_json_from_reports(filename, media, client):
         try:
             response = client.models.generate_content(
                 model="gemini-2.5-flash-preview-05-20",
-                contents=[basePrompt, report],
+                contents=[base_prompt, report],
                 config={
                     "response_mime_type": "application/json",
                     "response_schema": JsonCompanyOutputFormat,
