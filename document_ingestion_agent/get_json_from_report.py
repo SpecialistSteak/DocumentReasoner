@@ -1,6 +1,6 @@
 import json
 
-from expected_json_format_storage_class import JsonCompanyOutputFormat
+from expected_json_format_storage_class import CompanyDataDocument
 
 base_prompt = open("extract_prompt.txt", "r").read()
 
@@ -20,14 +20,14 @@ def get_json_from_report(filename, media, client):
             contents=[base_prompt, report],
             config={
                 "response_mime_type": "application/json",
-                "response_schema": JsonCompanyOutputFormat,
+                "response_schema": CompanyDataDocument,
             }
         )
     except Exception as e:
         print(f"some error with sending to Gemini {str(e)}")
         return "{}"
 
-    return json.loads(response.text)
+    return json.loads("[" + response.text + "]")
 
 
 def get_json_from_reports(filename, media, client):
@@ -53,7 +53,7 @@ def get_json_from_reports(filename, media, client):
                 contents=[base_prompt, report],
                 config={
                     "response_mime_type": "application/json",
-                    "response_schema": JsonCompanyOutputFormat,
+                    "response_schema": CompanyDataDocument,
                 }
             )
         except Exception as e:

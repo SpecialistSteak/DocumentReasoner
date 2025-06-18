@@ -64,28 +64,39 @@ This is the complete and final list of metrics. You MUST use the specified `metr
 The final output must be a single JSON object structured EXACTLY as follows. The example below is a brief snippet to illustrate the required structure. Your actual output will be much longer and must contain an entry for every metric in the master list for every year found in the document.
 
 ```json
-{
-  "company_ticker": "PLTR",
-  "filing_date": "2021-12-31"
-  "currency": "USD",
-  "financials": [
-    {
-      "metric_id": 1,
-      "fiscal_year": 2023,
-      "fiscal_period": "FY",
-      "value": 3115024
-    },
-    {
-      "metric_id": 1,
-      "fiscal_year": 2022,
-      "fiscal_period": "FY",
-      "value": 2865607
-    },
-    {
-      "metric_id": 27,
-      "fiscal_year": 2023,
-      "fiscal_period": "FY",
-      "value": null
-    }
-  ]
-}
+# {
+#   "company_data": [
+#     {
+#       "company_ticker": "AAPL",
+#       "filing_date": "2024-09-30",
+#       "currency": "USD",
+#       "financials": [
+#         {
+#           "metric_id": 1,
+#           "fiscal_year": 2024,
+#           "fiscal_period": "FY",
+#           "value": 401500000000
+#         },
+#         {
+#           "metric_id": 10,
+#           "fiscal_year": 2024,
+#           "fiscal_period": "FY",
+#           "value": 102300000000
+#         }
+#       ]
+#     },
+#     {
+#       "company_ticker": "MSFT",
+#       "filing_date": "2024-06-30",
+#       "currency": "USD",
+#       "financials": [
+#         {
+#           "metric_id": 1,
+#           "fiscal_year": 2024,
+#           "fiscal_period": "FY",
+#           "value": 236584000000
+#         }
+#       ]
+#     }
+#   ]
+# }
