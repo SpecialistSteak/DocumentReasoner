@@ -35,7 +35,9 @@ and calculations for validation.
 - `math_interpreter_agent`
   - Is the AI agent responsible for converting userinput into database queries and math equations
 - `sql_repair_agent`
-  - Is the agent used to repair incorrect SQL queries from the `math_interpreter_agent`
+  - Is the AI agent used to repair incorrect SQL queries from the `math_interpreter_agent`
+- `conversation_agent`
+  - Is the AI agent used to talk with the user
 - `math_and_sql_execution_service`
   - Executes the SQL queries given by the `math_interpreter_agent`/`sql_repair_agent` and runs the math equations
 - `storage_service`

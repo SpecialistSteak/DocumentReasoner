@@ -1,87 +1,102 @@
 import math
 import json
 
+from query_executor import get_query_data
+
 
 # Example input calculation_json:
 # {
 #   "lines": [
 #     {
+#       "command": "ADD",
+#       "params": [
+#         {
+#           "metric_id": 1,
+#           "fiscal_year": 2023,
+#           "fiscal_period": "FY",
+#           "company_ticker": "AAPL"
+#         },
+#         {
+#           "metric_id": 2,
+#           "fiscal_year": 2023,
+#           "fiscal_period": "FY",
+#           "company_ticker": "AAPL"
+#         }
+#       ]
+#     },
+#     {
 #       "command": "SUBTRACT",
 #       "params": [
-#         {"metric_id": 1, "fiscal_year": 2023, "fiscal_period": "FY"},
-#         {"metric_id": 1, "fiscal_year": 2022, "fiscal_period": "FY"}
-#       ]
-#     },
-#     {
-#       "command": "DIVIDE",
-#       "params": [
 #         "$0$",
-#         {"metric_id": 1, "fiscal_year": 2022, "fiscal_period": "FY"}
-#       ]
-#     },
-#     {
-#       "command": "MULTIPLY",
-#       "params": [
-#         "$1$",
-#         100
+#         {
+#           "metric_id": 3,
+#           "fiscal_year": 2023,
+#           "fiscal_period": "FY",
+#           "company_ticker": "AAPL"
+#         }
 #       ]
 #     }
 #   ]
 # }
+
 
 def calculate(calculation_json, querydata):
     if isinstance(calculation_json, str):
         json_data = json.loads(calculation_json)
     else:
         json_data = calculation_json
-    lines_list :list = json_data.get("lines")
-    output_list :list = []
+    lines_list: list = json_data.get("lines")
+    output_list: list = []
     for line in lines_list:
+        get_query_data(line, querydata)
+        A = None
+        B = None
+        input_list = None
         match line.get("command"):
             # Takes in two variables
             case "ADD":
-                print()
+                output_list.append(ADD(A, B))
             case "SUBTRACT":
-                print()
+                output_list.append(SUBTRACT(A, B))
             case "MULTIPLY":
-                print()
+                output_list.append(MULTIPLY(A, B))
             case "DIVIDE":
-                print()
+                output_list.append(DIVIDE(A, B))
             case "POW":
-                print()
+                output_list.append(POW(A, B))
             case "LOG":
-                print()
+                output_list.append(LOG(A, B))
 
             # Takes in one variable
             case "SQRT":
-                print()
+                output_list.append(SQRT(A))
             case "EXP":
-                print()
+                output_list.append(EXP(A))
             case "LN":
-                print()
+                output_list.append(LN(A))
             case "ABS":
-                print()
+                output_list.append(ABS(A))
             case "FLOOR":
-                print()
+                output_list.append(FLOOR(A))
             case "CEIL":
-                print()
+                output_list.append(CEIL(A))
 
             # Takes in a list
             case "MIN":
-                print()
+                output_list.append(MIN(input_list))
             case "MAX":
-                print()
+                output_list.append(MAX(input_list))
             case "AVG":
-                print()
+                output_list.append(AVG(input_list))
             case "SUM":
-                print()
+                output_list.append(SUM(input_list))
 
             # Else
             case _:
-                print()
-
+                print("Unknown operation.")
 
     print(json_data)
+
 
 def ADD(A, B):
     return A + B
